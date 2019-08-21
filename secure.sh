@@ -2,7 +2,7 @@
 if [$1]
     DOMAIN = $1
     cd /etc/nginx/sites-enabled
-    touch ${DOMAIN}.conf
+    touch "${DOMAIN}.conf"
     echo "server {
             server_name ${DOMAIN};
             # The internal IP of the VM that hosts your Apache config
@@ -21,7 +21,7 @@ if [$1]
                 proxy_redirect off;
             }
             listen 80;
-        }" > ${DOMAIN}.conf
+        }" > "${DOMAIN}.conf"
         
         systemctl reload nginx
         certbot — nginx -d ${DOMAIN}
