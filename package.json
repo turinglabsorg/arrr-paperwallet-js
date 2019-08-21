@@ -1,0 +1,26 @@
+{
+  "name": "arrr-paperwallet-js",
+  "version": "1.0.0",
+  "description": "Javascript wrapper for official PirateChain paper wallet",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turinglabsorg/arrr-paperwallet-js.git"
+  },
+  "author": "@turinglabsorg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turinglabsorg/arrr-paperwallet-js/issues"
+  },
+  "homepage": "https://github.com/turinglabsorg/arrr-paperwallet-js#readme",
+  "dependencies": {
+    "secure-random": "^1.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
