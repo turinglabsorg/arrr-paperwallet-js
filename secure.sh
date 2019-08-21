@@ -1,3 +1,4 @@
+#!/bin/bash
 #CREATING CERTIFICATE
 if [$1]
     DOMAIN = $1
