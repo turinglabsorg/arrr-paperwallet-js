@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>PirateChain ($ARRR) Paper Wallet Generator</title>
+    <meta name="description" content="Generate your paper wallet and save it in a file.">
+    <meta name="author" content="@turinglabs">
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+    <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/fonts/fontsheet.css" />
+    <link rel=icon href="/fav.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body {
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+        text-align: center;
+        font-size: 22px;
+        font-family: 'bai_jamjureeregular';
+    }
+    .btn{
+        cursor:pointer; 
+    }
+</style>
+
+<body>
+    <div id="app">
+        <img src="/Pirate_Logo_WG.png" style="padding:0 0 20px 0" width="100%"><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 offset-md-4">
+                    PirateChain (ARRR)<br>address generator
+                    <img :src="qrcode" width="100%"><br>
+                    <pre style="font-size:8px; background:#fff">{{ wallet.address }}</pre>
+                    <div v-on:click="downloadWallet" class="btn btn-primary">DOWNLOAD PRIVATE KEY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                wallet: '',
+                qrcode: ''
+            },
+            methods: {
+                downloadWallet(){
+                    letpp = this
+                    const url = window.URL.createObjectURL(new Blob([JSON.stringify(app.wallet)]))
+                    const link = document.createElement('a')
+                    link.href = url
+                    link.setAttribute('download', 'piratewallet.arrr')
+                    document.body.appendChild(link)
+                    link.click()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
